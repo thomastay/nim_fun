@@ -1,0 +1,88 @@
+This is what we want
+StmtList
+  TypeSection
+    TypeDef
+      Ident "Commands"
+      Empty
+      EnumTy
+        Empty
+        EnumFieldDef
+          Ident "Plus"
+          StrLit "+"
+        EnumFieldDef
+          Ident "Minus"
+          StrLit "-"
+  Call
+    Ident "defineCommands"
+    StmtList
+      Asgn
+        Ident "Plus"
+        StrLit "+"
+      Call
+        StrLit "Adds two numbers"
+        StmtList
+          Call
+            DotExpr
+              Ident "stack"
+              Ident "execute"
+            Infix
+              Ident "+"
+              Ident "a"
+              Ident "b"
+      Asgn
+        Ident "Minus"
+        StrLit "-"
+      Call
+        StrLit "Subtract two numbers"
+        StmtList
+          Call
+            DotExpr
+              Ident "stack"
+              Ident "execute"
+            Infix
+              Ident "-"
+              Ident "b"
+              Ident "a"
+This is the input to our macro
+StmtList
+  Asgn
+    Ident "Plus"
+    StrLit "+"
+  Call
+    StrLit "Adds two numbers"
+    StmtList
+      Call
+        DotExpr
+          Ident "stack"
+          Ident "execute"
+        Infix
+          Ident "+"
+          Ident "a"
+          Ident "b"
+  Asgn
+    Ident "Minus"
+    StrLit "-"
+  Call
+    StrLit "Subtract two numbers"
+    StmtList
+      Call
+        DotExpr
+          Ident "stack"
+          Ident "execute"
+        Infix
+          Ident "-"
+          Ident "b"
+          Ident "a"
+This is the enum we create!
+TypeSection
+  TypeDef
+    Ident "Commands"
+    Empty
+    EnumTy
+      Empty
+      EnumFieldDef
+        Ident "Plus"
+        StrLit "+"
+      EnumFieldDef
+        Ident "Minus"
+        StrLit "-"

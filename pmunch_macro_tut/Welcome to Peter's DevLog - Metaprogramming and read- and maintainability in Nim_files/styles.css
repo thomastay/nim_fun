@@ -1,0 +1,369 @@
+body{
+	margin:0;
+	overflow-y:hidden;
+	color:#36342D;
+	background:#F4FAF3;
+	font-family: 'Open Sans', sans-serif;
+}
+hr{
+	width:50%;
+	border:0;
+	height:1px;
+	background-color: #B1ACA0;
+}
+h1 > a{
+	color:#36342D;
+	text-decoration: none;
+}
+#scrapsheader{
+	text-align: left;
+}
+#scrapsheader span{
+	color: #B1ACA0;
+	float: right;
+	font-size: 65%;
+}
+h3 a{
+	color:#B1ACA0;
+}
+div, img{
+	animation-duration:.3s;
+	animation-timing-function: ease-in;
+}
+p img{
+  display: block;
+  margin: 20 auto;
+}
+iframe{
+	width:100%;
+}
+#homebutton{
+	padding-top:30px;
+	padding-right: 15px;
+	float:right;
+}
+.readmore{
+	margin-top:50px;
+	text-rendering:optimizeLegibility;
+	text-align: center;
+	color:#B1ACA0;
+}
+.readmore a{
+	color:#B1ACA0;
+	font-size: 16px;
+	font-family:'Open Sans', sans-serif;
+}
+a{
+	color:#363450;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+.post p a::after{
+	vertical-align: super;
+	content: url('img/link.svg');
+	font-size: 70%;
+	color: rgba(0,0,0,.3);
+}
+.post{
+	max-width:800px;
+	margin:0 auto;
+	padding-top: 40px;
+}
+.post > h1{
+	text-rendering:optimizeLegibility;
+	text-align: center;
+	font-family:'Computer Modern Serif', serif;
+}
+.post > h2{
+	text-rendering:optimizeLegibility;
+	margin-top: 40px;
+	margin-left:10px;
+	font-family:'Computer Modern Serif', serif;
+}
+#tagheader{
+	font-size: 24px;
+	font-weight: bold;
+	color:#B1ACA0;
+	text-rendering:optimizeLegibility;
+}
+#footer > a{
+	color:#B1ACA0;
+}
+.post > h3{
+	text-rendering:optimizeLegibility;
+	text-align: center;
+	color:#B1ACA0;
+	font-size: 1em;
+}
+.post p{
+	text-rendering:optimizeLegibility;
+	font-size:22px;
+	line-height: 35px;
+	margin:0;
+	text-indent:2em;
+	font-family:'Computer Modern Serif', serif;
+}
+ul {
+	font-family:'Computer Modern Serif', serif;
+	font-size:19px;
+  list-style-type: circle;
+}
+li {
+  margin-bottom: 15px;
+}
+code {
+  font-family: "Computer Modern Typewriter";
+}
+pre > code {
+	overflow-x: inherit;
+	margin-left: -2.5em;
+}
+@media only screen and (max-width: 880px) {
+	pre > code {
+		margin-left: 0em;
+	}
+}
+pre.nohighlight {
+  margin: 5em 0;
+}
+pre.nohighlight > code {
+  font-family: monospace;
+}
+@media only screen and (orientation: portrait){
+	#leftbar {
+		background:#009EED;
+		width:100%;
+		height:200px;
+		position: fixed;
+		bottom:0px;
+	}
+	#rightbar{
+		height:calc(100vh - 200px);
+		overflow-y:scroll;
+	}
+	#title{
+		font-family: 'Arvo', serif;
+		font-size:55;
+		width:300px;
+		position:relative;
+		bottom:140px;
+		color:#FFF;
+	}
+	#arrow{
+		transform: rotate(270deg)
+	}
+	.hid#leftbar{
+		height: 48px
+	}
+	.hid#rightbar{
+		height: calc(100vh - 48px)
+	}
+	.hid#title{
+		bottom: 57px
+	}
+	.hid#arrow{
+		transform: rotate(90deg)
+	}
+}
+@media only screen and (orientation: landscape){
+	#leftbar{
+		background:#009EED;
+		width:300px;
+		height:100%;
+		float:left;
+		padding:5px;
+		overflow:hidden;
+		position:relative;
+	}
+	#rightbar{
+		padding-left: 35px;
+		margin-left:300px;
+		height:100%;
+		position:relative;
+		overflow-y:scroll;
+	}
+	#title{
+		font-family: 'Arvo', serif;
+		font-size:70;
+		width:300px;
+		position:relative;
+		bottom:180px;
+		color:#FFF;
+	}
+	#arrow{
+		transform: rotate(0deg)
+	}
+	#rightbarContent{
+		padding:10px;
+	}
+	.hid#leftbar{
+		width: 48px
+	}
+	.hid#rightbar{
+		margin-left: 48px
+	}
+	.hid#arrow{
+		transform: rotate(180deg)
+	}
+}
+@media only print{
+	#leftbar{
+		display: none;
+	}
+	#rightbar{
+		width:100%;
+	}
+	.post p{
+		line-height: 20px;
+		font-size:16px;
+		margin-left: 30px;
+	}
+}
+#leftbar.animate{
+	animation-name:hide;
+}
+#rightbar.animate{
+	animation-name:slide;
+}
+#arrow.animate{
+	animation-name:rotate;
+}
+#sidebar.animate{
+	animation-name:up;
+}
+#title.animate{
+	animation-name:titleup;
+}
+.sidebarButtonLabel.animate{
+	animation-name: fade;
+	animation-duration:.1s;
+	animation-timing-function: ease-in;
+}
+#sidebarContent > a{
+	text-decoration: none;
+}
+#rightbarContent{
+	margin: 3vw;
+	min-height:100%;
+	margin-bottom: -60px;
+}
+#rightbarContent:after{
+	content: "";
+	display: block;
+}
+#rightbarContent:after{
+	height: 120px;
+}
+#footer{
+	text-align: center;
+	height:30px;
+}
+#sidebar{
+	position:absolute;
+	top:100%;
+}
+blockquote{
+	font-style: italic;
+	color: #555;
+	margin-top:-70px;
+}
+blockquote:before {
+    font-family: 'Computer Modern serif', serif;
+    content: "\201C";
+    font-size: 80px;
+    position: relative;
+    top: 70px;
+}
+.letter{
+	margin-right:4px;
+}
+.sidebarButton{
+	width:38px;
+	float:right;
+	margin:5px;
+}
+.sidebarButtonBox{
+	height:48px;
+}
+.sidebarButtonLabel{
+	float:right;
+	padding-top: 16px;
+	padding-right:8px;
+	font-family: 'Arvo', serif;
+	font-size: small;
+	color: rgba(255,255,255,0);
+}
+.hidden{
+	display: none;
+}
+
+@media only screen and (orientation: portrait){
+	@keyframes hide{
+		from{height:200px;}
+		to{height:48px;}
+	}
+	@keyframes rotate{
+		from{transform:rotate(270deg);}
+		to{transform:rotate(90deg);}
+	}
+	@keyframes slide{
+		from{height:calc(100vh - 200px);}
+		to{height:calc(100vh - 48px);}
+	}
+	@keyframes titleup{
+		from{bottom:140px;}
+		to{bottom:57px;}
+	}
+}
+@media only screen and (orientation: landscape){
+	@keyframes hide{
+		from{width:300px;}
+		to{width:48px;}
+	}
+	@keyframes rotate{
+		from{transform:rotate(0deg);}
+		to{transform:rotate(180deg);}
+	}
+	@keyframes slide{
+		from{margin-left:300px;}
+		to{margin-left:48px;}
+	}
+}
+@keyframes up{
+	from{top:100%;}
+	to{top:230px;}
+}
+@keyframes fade{
+	from{color:rgba(255,255,255,0);}
+	to{color:rgba(255,255,255,1);}
+}
+center > a{
+	display: none;
+}
+/* for block of numbers */
+td.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    text-align: center;
+    color: #998;
+    border-right: 1px solid #CCC;
+    vertical-align: top;
+    padding-right: 5px;
+    width: 1em;
+
+    /* your custom style here */
+}
+
+/* for block of code */
+td.hljs-ln-code {
+    padding-left: 10px !important;
+    white-space: pre-wrap;
+    font-size: 15px;
+}
