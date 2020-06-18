@@ -72,7 +72,8 @@ func minify*(s: string): string =
       let semiColonPos = s.find(';', i)
       let slice = s.substr[i..<semiColonPos]
       let properties = slice.splitWhitespace()
-      result &= " " & properties.join(" ")
+      result.add(" ")  # one space in front
+      result &= properties.join(" ")
       # loop
       state = Elt
       i = semiColonPos
