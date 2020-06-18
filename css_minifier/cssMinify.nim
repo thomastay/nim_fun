@@ -28,6 +28,7 @@ func minify*(s: string): string =
               text-decoration: underline;
         pixel-density: 100px   solid bold   30%    margin;
     /* coent */
+    }
     """
     let expected = "a:hover{font-weight: 600;text-decoration: underline;pixel-density: 100px solid bold 30% margin;}"
     assert minify(s) == expected
@@ -72,7 +73,7 @@ func minify*(s: string): string =
       let semiColonPos = s.find(';', i)
       let slice = s.substr[i..<semiColonPos]
       let properties = slice.splitWhitespace()
-      result.add(" ")  # one space in front
+      result.add(' ')  # one space in front
       result &= properties.join(" ")
       # loop
       state = Elt
