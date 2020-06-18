@@ -30,7 +30,7 @@ func minify*(s: string): string =
     /* coent */
     }
     """
-    let expected = "a:hover{font-weight: 600;text-decoration: underline;pixel-density: 100px solid bold 30% margin;}"
+    let expected = "a:hover{font-weight:600;text-decoration:underline;pixel-density:100px solid bold 30% margin;}"
     assert minify(s) == expected
 
   let n = len(s)
@@ -69,11 +69,10 @@ func minify*(s: string): string =
     of Field:
       # in a field, must separate whitespace
       # properties in fields are separated by at most one space
-      # recreate a single spaced property list, with one space in front
+      # recreate a single spaced property list
       let semiColonPos = s.find(';', i)
       let slice = s.substr[i..<semiColonPos]
       let properties = slice.splitWhitespace()
-      result.add(' ')  # one space in front
       result &= properties.join(" ")
       # loop
       state = Elt
@@ -101,7 +100,7 @@ proc test2() =
     margin: 0 20px;
   }
   """
-  let expected = "body{font-family: sans-serif;-webkit-font-smoothing: antialiased;margin: 0 20px;}"
+  let expected = "body{font-family:sans-serif;-webkit-font-smoothing:antialiased;margin:0 20px;}"
   test(s, expected)
 
 proc test1() =
@@ -114,7 +113,7 @@ proc test1() =
   /* coent */
   }
   """
-  let expected = "a:hover{font-weight: 600;text-decoration: underline;pixel-density: 100px solid bold 30% margin;}"
+  let expected = "a:hover{font-weight:600;text-decoration:underline;pixel-density:100px solid bold 30% margin;}"
   test(s, expected)
 
 proc testAll() =
