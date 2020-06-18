@@ -7,7 +7,7 @@ type
 template isStartOfComment(c: char): bool =
   c == '/' and s[i] == '*'
 
-template handleComment(currState: MinifierState) =
+template changeToCommentFrom(currState: MinifierState) =
   inc i
   state = Comment
   prevState = currState # to backtrack
@@ -49,7 +49,7 @@ func minify*(s: string): string =
       inc i
       if c in whitespace: continue
       elif isStartOfComment(c):
-        handleComment(Start)
+        changeToCommentFrom(Start)
       else:
         result.add(c)
         if c == '{': state = Elt
@@ -58,7 +58,7 @@ func minify*(s: string): string =
       inc i
       if c in whitespace: continue
       elif isStartOfComment(c):
-        handleComment(Elt)
+        changeToCommentFrom(Elt)
       else:
         result.add(c)
         case c
