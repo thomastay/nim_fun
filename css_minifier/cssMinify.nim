@@ -8,6 +8,9 @@ template isStartOfComment(c: char): bool =
   c == '/' and s[i] == '*'
 
 template changeToCommentFrom(currState: MinifierState) =
+  # Increments the index, since we are pointing at * in the "/*" part of a comment
+  # Sets the state to Comment
+  # sets the backtrack state
   inc i
   state = Comment
   prevState = currState # to backtrack
@@ -43,7 +46,6 @@ func minify*(s: string): string =
   # start of state machine
   var i = 0
   while i < n:
-    {.computedGoto.}
     case state
     of Start: # strip whitespace, lookout for {
       let c = s[i]
@@ -71,7 +73,7 @@ func minify*(s: string): string =
       # properties in fields are separated by at most one space
       # recreate a single spaced property list
       let semiColonPos = s.find(';', i)
-      let slice = s.substr[i..<semiColonPos]
+      let slice = s[i..<semiColonPos]
       let properties = slice.splitWhitespace()
       result &= properties.join(" ")
       # loop
@@ -86,7 +88,6 @@ func minify*(s: string): string =
 proc test(s, expected: string) =
   echo "------- TESTING ----------"
   let m = minify(s)
-  echo "------- OUT ----------"
   echo m
   assert m == expected
 
