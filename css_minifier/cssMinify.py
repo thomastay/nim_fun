@@ -12,13 +12,14 @@ class MinifierState(Enum):
 
 # See cssMinify.nim for the full details of the implementation
 def minify(s: str) -> str:
-    ## Implements a very simple CSS minifier
-    ## Only for academic use, not suited for production
-    ## A real minifier must read a string in buffers
-    ## to maximize cache utilization
-    ## Simply put, it removes unimportant whitespace
-    ## and comments.
-    ## It cannot handle nested CSS.
+    """
+    Implements a very simple CSS minifier.
+    Only for academic use, not suited for production.
+    A real minifier must read a string in buffers
+    to maximize cache utilization.
+    Simply put, it removes unimportant whitespace and comments.
+    It cannot handle nested CSS.
+    """
     n = len(s)
     state = MinifierState.Start
     prevState = MinifierState.Start
